@@ -38,11 +38,37 @@
           <p>Discussion</p>
         </a>  *ngFor="let item of items.getAllMenu()"
       </div> -->
-      <div class="col-sm-3 text-center mb-4">
+      <div class="col-sm-3">
         <a [routerLink]="['/dashboard-stocks']">
+          <div class="card card-body card-widget bg-brown card-inverse">
+            <div class="mr-auto">
+              <h3 class="fw-300 mb-0">Inventory</h3>
+              <small>Stock Management</small>
+            </div>
+            <div class="d-block">
+              <div class="icon icon-basic-archive-full h1 mb-0"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <a [routerLink]="['/dashboard-stocks']">
+          <div class="card card-body card-widget bg-deep-purple card-inverse">
+            <div class="mr-auto">
+              <h3 class="fw-300 mb-0">Employees</h3>
+              <small>Employees Management</small>
+            </div>
+            <div class="d-block">
+              <i class="icon-people"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- <div class="col-sm-3 text-center mb-4">
+        
           <p><i class="fa fa-comments fa-5x" aria-hidden="true"></i></p>
           <p>Inventory</p>
         </a>
-      </div>
+      </div> -->
     </div>
 </div>

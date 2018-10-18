@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-stocks',
   templateUrl: './dashboard-stocks.component.html',
   styleUrls: ['./dashboard-stocks.component.scss']
 })
+export class StocksDashboardComponent implements OnInit {
 
-export class StocksDashboardComponent {
+  public data: any[];
+
+  ngOnInit(): void {
+
+  }
 }

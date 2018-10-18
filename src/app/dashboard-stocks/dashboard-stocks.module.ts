@@ -1,13 +1,32 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 import { StocksDashboardComponent } from './dashboard-stocks.component';
 import { StocksDashboardRoutes } from './dashboard-stocks.routing';
 
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+import { BarComponent } from './bar/bar.component';
+import { PieComponent } from './pie/pie.component';
+import { LineComponent } from './line/line.component';
+import { MiscComponent } from './misc/misc.component';
+
+
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(StocksDashboardRoutes)],
-  declarations: [StocksDashboardComponent]
+  imports: [
+    RouterModule.forChild(StocksDashboardRoutes),
+    CommonModule,
+    NgxChartsModule
+  ],
+  declarations: [
+    StocksDashboardComponent,
+    BarComponent,
+    PieComponent,
+    LineComponent,
+    MiscComponent
+  ]
 })
 
 export class StocksDashboardModule {}

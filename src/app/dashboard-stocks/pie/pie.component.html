@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">Products Details</div>
+      <div class="card-body">
+        <div>
+          <ngx-charts-advanced-pie-chart
+            class="chart-container"
+            [scheme]="colorScheme"
+            [results]="single"
+            (legendLabelClick)="onLegendLabelClick($event)"
+            [gradient]="gradient"
+            [tooltipDisabled]="tooltipDisabled"
+            (select)="select($event)">
+          </ngx-charts-advanced-pie-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">Product Item Details</div>
+      <div class="card-body">
+        <div>
+          <ngx-charts-pie-grid
+            class="chart-container"
+            [scheme]="colorScheme"
+            (legendLabelClick)="onLegendLabelClick($event)"
+            [results]="single"
+            [tooltipDisabled]="tooltipDisabled"
+            (select)="select($event)">
+          </ngx-charts-pie-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

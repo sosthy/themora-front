@@ -1,4 +1,4 @@
-export const single = [
+export let single = [
   {
     name: 'Germany',
     value: 40
