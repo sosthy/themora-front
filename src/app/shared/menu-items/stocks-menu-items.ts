@@ -3,16 +3,16 @@ import { Menu } from './menu-items';
 
 const STOCKSMENUITEMS = [
   {
-    state: 'dashboard-stocks',
+    state: '/dashboard-stocks',
     name: 'HOME',
     type: 'link',
-    icon: 'basic-accelerator'
+    icon: ' fa fa-tachometer'
   },
   {
     state: 'products',
     name: 'PRODUCTS',
     type: 'sub',
-    icon: 'basic-lock-open',
+    icon: ' fa fa-cubes',
     children: [
       {
         state: 'phones',
@@ -24,13 +24,13 @@ const STOCKSMENUITEMS = [
     state: 'inventories',
     name: 'INVENTORIES',
     type: 'link',
-    icon: 'basic-lock-open',
+    icon: ' fa fa-map-o',
   },
   {
     state: 'recipients',
     name: 'RECIPIENTS',
     type: 'link',
-    icon: 'basic-lock-open',
+    icon: ' fa fa-users',
   },
 ];
 const EMPLOYEESMENUITEMS = [
