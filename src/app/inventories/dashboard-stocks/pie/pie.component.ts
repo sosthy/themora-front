@@ -1,31 +1,24 @@
 import { Component } from '@angular/core';
 
-import * as shape from 'd3-shape';
-import * as d3 from 'd3';
 import { colorSets } from '@swimlane/ngx-charts/release/utils/color-sets';
-import { single, multi, generateData } from '../../shared/chartData';
+import { single } from '../../../shared/chartData';
 
 @Component({
-  selector: 'app-line',
-  templateUrl: './line.component.html',
-  styleUrls: ['./line.component.scss']
+  selector: 'app-pie',
+  templateUrl: './pie.component.html',
+  styleUrls: ['./pie.component.scss']
 })
-export class LineComponent {
+export class PieComponent {
 
   single: any[];
-  multi: any[];
-  dateData: any[];
-  dateDataWithRange: any[];
-  range = false;
-
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = false;
+  showLegend = true;
   showXAxisLabel = true;
   tooltipDisabled = false;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Product';
   showYAxisLabel = true;
   yAxisLabel = 'GDP Per Capita';
   showGridLines = true;
@@ -36,38 +29,23 @@ export class LineComponent {
   maxRadius = 10;
   minRadius = 3;
 
-  // line interpolation
-  curve = shape.curveLinear;
-
   colorScheme = {
     domain: [
       '#0099cc', '#2ECC71', '#4cc3d9', '#ffc65d', '#d96557', '#ba68c8'
     ]
   };
   schemeType = 'ordinal';
-  rangeFillOpacity = 0.15;
 
-  // line, area
-  autoScale = true;
-  timeline = false;
+  // pie
+  showLabels = true;
+  explodeSlices = false;
+  doughnut = false;
+  arcWidth = 0.25;
 
   constructor() {
     Object.assign(this, {
-      single,
-      multi
+      single
     });
-
-    this.dateData = generateData(5, false);
-    this.dateDataWithRange = generateData(2, true);
-  }
-
-  get dateDataWithOrWithoutRange() {
-    if (this.range) {
-      return this.dateDataWithRange;
-    } else {
-      return this.dateData;
-    }
-
   }
 
   select(data) {

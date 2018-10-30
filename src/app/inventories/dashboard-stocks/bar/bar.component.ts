@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 
-import { colorSets } from '@swimlane/ngx-charts/release/utils/color-sets';
-import { single } from '../../shared/chartData';
+import { single, multi } from '../../../shared/chartData';
 
 @Component({
-  selector: 'app-pie',
-  templateUrl: './pie.component.html',
-  styleUrls: ['./pie.component.scss']
+  selector: 'app-bar',
+  templateUrl: './bar.component.html',
+  styleUrls: ['./bar.component.scss']
 })
-export class PieComponent {
+export class BarComponent {
 
   single: any[];
+  multi: any[];
+
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
+  showLegend = false;
   showXAxisLabel = true;
   tooltipDisabled = false;
-  xAxisLabel = 'Product';
+  xAxisLabel = 'Country';
   showYAxisLabel = true;
   yAxisLabel = 'GDP Per Capita';
   showGridLines = true;
@@ -31,20 +32,15 @@ export class PieComponent {
 
   colorScheme = {
     domain: [
-      '#0099cc', '#2ECC71', '#4cc3d9', '#ffc65d', '#d96557', '#ba68c8'
+      '#0099cc', '#2ECC71', '#4cc3d9'
     ]
   };
   schemeType = 'ordinal';
 
-  // pie
-  showLabels = true;
-  explodeSlices = false;
-  doughnut = false;
-  arcWidth = 0.25;
-
   constructor() {
     Object.assign(this, {
-      single
+      single,
+      multi
     });
   }
 

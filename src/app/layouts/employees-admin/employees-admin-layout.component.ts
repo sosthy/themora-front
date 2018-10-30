@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
-import { MenuItems } from '../../shared/menu-items/stocks-menu-items';
+import { EmployeesMenuItems } from '../../shared/menu-items/employees-menu-items';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { TranslateService } from '@ngx-translate/core';
@@ -41,7 +41,7 @@ export class EmployeesAdminLayoutComponent implements OnInit, OnDestroy, AfterVi
   @ViewChild('sidebar') sidebar;
 
   constructor (
-    public menuItems: MenuItems,
+    public menuItems: EmployeesMenuItems,
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService,
@@ -111,16 +111,4 @@ export class EmployeesAdminLayoutComponent implements OnInit, OnDestroy, AfterVi
     this.modalService.open(search, { windowClass: 'search', backdrop: false });
   }
 
-  addMenuItem(): void {
-    this.menuItems.addEmployeesMenu({
-      state: 'menu',
-      name: 'MENU',
-      type: 'sub',
-      icon: 'basic-webpage-txt',
-      children: [
-        {state: 'menu', name: 'MENU'},
-        {state: 'menu', name: 'MENU'}
-      ]
-    });
-  }
 }

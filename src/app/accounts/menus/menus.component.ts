@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {AccountsService} from '../accounts.service';
+import {Http} from '@angular/http';
+import {AppMenu} from '../../models/appmenu.model';
 
 
 @Component({
@@ -7,29 +10,21 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './menus.component.html',
   styleUrls: ['./menus.component.scss']
 })
-export class RolesComponent implements OnInit {
+export class MenusComponent implements OnInit {
 
   public data: any[];
   closeResult: string;
-  mode: number;
   addEditCardHeader: string;
-  password: string;
-  rolesSel: Array<string> = new Array();
-  roleSelected: Array<string> = new Array();
-  rolSelRemoved: Array<string> = new Array();
-  roles: Array<string> = new Array();
-  employee = '';
-  employeeSelected: Array<string> = new Array();
-  employees: Array<string> = new Array();
+  menus: Array<AppMenu> = new Array();
+  mode = 1;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private accountsSerice: AccountsService) {}
 
   ngOnInit(): void {
-    this.mode = 1;
-    this.addEditCardHeader = 'Create Role';
-    this.password = '********';
-    this.roles = ['RH', 'ADMIN', 'MAGASINIER', 'ORDER'];
-    this.employees = ['Sosthene Nouebissi', 'Tcheche Romeo', 'Zuko Tinkam', 'Marie Paul'];
+    this.accountsSerice.getAllMenus().subscribe(data => {
+      console.log(data);
+    });
   }
 
   open(content) {
@@ -48,50 +43,6 @@ export class RolesComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
-  }
-
-  onCreateUser(): void {
-    this.addEditCardHeader = 'Create Role';
-    this.mode = 4;
-  }
-
-  onListUser(): void {
-    this.mode = 1;
-  }
-
-  onDetailsUser(id: number): void {
-    console.log(id);
-    this.mode = 2;
-  }
-
-  addRole() {
-    this.rolesSel.forEach(role => {
-      if (role) {
-        if(this.roles.find(r => r === role)) {
-          this.roleSelected.push(role);
-        }
-        const index: number = this.roles.indexOf(role);
-        if(index !== -1) {
-          this.roles.splice(index, 1);
-        }
-        this.rolesSel = null;
-      }
-    });
-  }
-
-  onRoleChanged(role: string) {
-
-  }
-
-  clearSelectedRole() {
-    this.rolSelRemoved.forEach(rol => {
-      const index: number = this.roleSelected.indexOf(rol);
-      if(index !== -1) {
-        this.roleSelected.splice(index, 1);
-      }
-      this.roles.push(rol);
-      this.rolSelRemoved = null;
-    });
   }
 
   compareFn(c1: any, c2: any): boolean {

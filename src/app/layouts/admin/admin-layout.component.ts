@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
-import { MenuItems } from '../../shared/menu-items/stocks-menu-items';
+
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { TranslateService } from '@ngx-translate/core';
@@ -41,7 +41,6 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('sidebar') sidebar;
 
   constructor (
-    public menuItems: MenuItems,
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService,

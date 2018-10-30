@@ -3,7 +3,7 @@ import { Menu } from './menu-items';
 
 const STOCKSMENUITEMS = [
   {
-    state: '/dashboard-stocks',
+    state: 'dashboard-stocks',
     name: 'HOME',
     type: 'link',
     icon: ' fa fa-tachometer'
@@ -55,7 +55,7 @@ const EMPLOYEESMENUITEMS = [
 ];
 
 @Injectable()
-export class MenuItems {
+export class StocksMenuItems {
 
   constructor() {
 
@@ -65,15 +65,4 @@ export class MenuItems {
     return STOCKSMENUITEMS;
   }
 
-  addStocksMenu(menu: Menu) {
-    STOCKSMENUITEMS.push(menu);
-  }
-
-  getAllEmployeesMenu(): Menu[] {
-    return EMPLOYEESMENUITEMS;
-  }
-
-  addEmployeesMenu(menu: Menu) {
-    EMPLOYEESMENUITEMS.push(menu);
-  }
 }

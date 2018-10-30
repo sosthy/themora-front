@@ -4,6 +4,7 @@ import { EmployeesAdminLayoutComponent } from './layouts/employees-admin/employe
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import {StocksAdminLayoutComponent} from './layouts/stocks-admin/stocks-admin-layout.component';
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
+import { AccountsAdminLayoutComponent } from './layouts/accounts-admin/accounts-admin-layout.component';
 
 export const AppRoutes: Routes = [{
   path: '',
@@ -24,10 +25,17 @@ export const AppRoutes: Routes = [{
   }]
 }, {
   path: '',
+  component: AccountsAdminLayoutComponent,
+  children: [{
+    path: 'accounts',
+    loadChildren: './accounts/accounts.module#AccountsModule'
+  }]
+}, {
+  path: '',
   component: StocksAdminLayoutComponent,
   children: [{
     path: 'dashboard-stocks',
-    loadChildren: './dashboard-stocks/dashboard-stocks.module#StocksDashboardModule'
+    loadChildren: './inventories/dashboard-stocks/dashboard-stocks.module#StocksDashboardModule'
   }]
 }, {
   path: '**',

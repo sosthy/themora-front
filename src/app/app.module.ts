@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
 import {StocksAdminLayoutComponent} from './layouts/stocks-admin/stocks-admin-layout.component';
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthenticationService} from './authentication/authentication.service';
+import {AccountsAdminLayoutComponent} from './layouts/accounts-admin/accounts-admin-layout.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,6 +38,8 @@ export function tokenGetter() {
     StocksAdminLayoutComponent,
     AuthLayoutComponent,
     AdminLayoutComponent,
+    AccountsAdminLayoutComponent,
+    EmployeesAdminLayoutComponent,
   ],
   imports: [
     BrowserModule,

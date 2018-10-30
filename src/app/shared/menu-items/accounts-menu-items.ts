@@ -3,34 +3,29 @@ import { Menu } from './menu-items';
 
 
 const ACCOUNTMENUITEMS = [
-  {
-    state: '/',
-    name: 'HOME',
-    type: 'link',
-    icon: 'basic-accelerator'
-  },
+
   {
     state: 'users',
-    name: 'users',
+    name: 'USERS',
     type: 'link',
-    icon: 'basic-lock-open',
+    icon: ' fa fa-users',
   },
   {
     state: 'roles',
-    name: 'roles',
+    name: 'ROLES',
     type: 'link',
-    icon: 'basic-lock-open',
+    icon: ' fa fa-support',
   },
   {
     state: 'menus',
-    name: 'menus',
+    name: 'MENUS',
     type: 'link',
-    icon: 'basic-sheet-txt'
+    icon: ' fa fa-bookmark'
   }
 ];
 
 @Injectable()
-export class MenuItems {
+export class AccountsMenuItems {
 
   constructor() {
 

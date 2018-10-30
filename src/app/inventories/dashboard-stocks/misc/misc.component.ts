@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import * as shape from 'd3-shape';
 import * as d3 from 'd3';
 import { colorSets } from '@swimlane/ngx-charts/release/utils/color-sets';
-import { single, multi, bubble, generateGraph } from '../../shared/chartData';
+import { single, multi, bubble, generateGraph } from '../../../shared/chartData';
 
 const monthName = new Intl.DateTimeFormat('en-us', { month: 'short' });
 const weekdayName = new Intl.DateTimeFormat('en-us', { weekday: 'short' });

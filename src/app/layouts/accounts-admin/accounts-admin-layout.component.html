@@ -28,7 +28,7 @@
     <nav class="menu">
       <ul class="navigation" appAccordion>
         <li class="navigation-item" appAccordionLink *ngFor="let menuitem of menuItems.getAllAccountsMenu()" group="{{menuitem.state}}">
-          <a class="navigation-link" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
+          <a class="navigation-link" appAccordionToggle [routerLink]="['/accounts/', menuitem.state]" *ngIf="menuitem.type === 'link'">
             <i class="icon icon-{{ menuitem.icon }}"></i>
             <span>{{ menuitem.name | translate }}</span>
             <span class="mr-auto"></span>
@@ -60,12 +60,6 @@
           </ul>
         </li>
         <li class="navigation-item"><hr class="mt-0 mb-0" /></li>
-        <!-- <li class="navigation-item">
-          <a class="navigation-link" (click)="addMenuItem()">
-            <i class="icon icon-basic-add"></i>
-            <span>Add</span>
-          </a>
-        </li> -->
       </ul>
     </nav>
     <!-- /main navigation -->

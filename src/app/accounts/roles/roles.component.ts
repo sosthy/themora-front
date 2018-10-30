@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {AccountsService} from "../accounts.service";
 
 
 @Component({
@@ -7,7 +8,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './roles.component.html',
   styleUrls: ['./roles.component.scss']
 })
-export class UsersComponent implements OnInit {
+export class RolesComponent implements OnInit {
 
   public data: any[];
   closeResult: string;
@@ -22,11 +23,11 @@ export class UsersComponent implements OnInit {
   employeeSelected: Array<string> = new Array();
   employees: Array<string> = new Array();
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private accountsSerice: AccountsService) {}
 
   ngOnInit(): void {
     this.mode = 1;
-    this.addEditCardHeader = 'Create User';
+    this.addEditCardHeader = 'Create Role';
     this.password = '********';
     this.roles = ['RH', 'ADMIN', 'MAGASINIER', 'ORDER'];
     this.employees = ['Sosthene Nouebissi', 'Tcheche Romeo', 'Zuko Tinkam', 'Marie Paul'];
@@ -51,7 +52,7 @@ export class UsersComponent implements OnInit {
   }
 
   onCreateUser(): void {
-    this.addEditCardHeader = 'Create User';
+    this.addEditCardHeader = 'Create Role';
     this.mode = 4;
   }
 

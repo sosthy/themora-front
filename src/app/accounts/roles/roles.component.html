@@ -1,8 +1,7 @@
 <div class="container">
   <div class="d-flex justify-content-between mb-5">
     <div>
-      <button class="btn btn-primary" (click)="onListUser()">Show List</button>
-      <button class="btn btn-primary" (click)="open(createRole)">Create User</button>
+      <button class="btn btn-primary" (click)="open(createRole)">Create Role</button>
     </div>
     <div class="u-search" *ngIf="mode == 1">
       <form>
@@ -17,7 +16,7 @@
   <div class="d-flex flex-nowrap bg-white m-2 u-item shadow" *ngFor="let i of [1,2,3,4,5,6]" (click)="open(userDetails)">
     <a href="" class="u-close"><span class="badge badge-danger rounded-circle">X</span></a>
     <div class="ml-2">
-      <strong>Sosthene Nouebissi</strong> <br />
+      <strong class="h5">ADMIN</strong> <br />
       <small>Software Developer</small>
     </div>
   </div>
@@ -61,7 +60,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="exampleSelect2" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Roles</label>
+          <label for="exampleSelect2" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Menus</label>
           <div class="col-sm-9 col-md-8 col-lg-9">
             <div class="row">
               <div class="col">
@@ -87,7 +86,7 @@
         <div class="form-group row">
           <label for="desc-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Description</label>
           <div class="col-sm-9 col-md-8 col-lg-9">
-            <textarea class="form-control" type="text" value="" id="desc-text-input" />
+            <textarea class="form-control" type="text" value="" id="desc-text-input"></textarea>
           </div>
         </div>
       </div>

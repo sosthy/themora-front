@@ -75,10 +75,14 @@
 
   "PRODUCTS": "Products",
     "PHONES": "Phones",
-  
+
   "INVENTORIES": "Inventories",
-  
+
   "RECIPIENTS": "Providers / Customers",
+
+  "USERS": "Users",
+  "ROLES": "Roles",
+  "MENUS": "Menus",
 
   "ERROR": "Error",
     "404": "404",

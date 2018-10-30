@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
-import { MenuItems } from '../../shared/menu-items/stocks-menu-items';
+import { StocksMenuItems } from '../../shared/menu-items/stocks-menu-items';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { TranslateService } from '@ngx-translate/core';
@@ -41,7 +41,7 @@ export class StocksAdminLayoutComponent implements OnInit, OnDestroy, AfterViewI
   @ViewChild('sidebar') sidebar;
 
   constructor (
-    public menuItems: MenuItems,
+    public menuItems: StocksMenuItems,
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService,
@@ -111,16 +111,4 @@ export class StocksAdminLayoutComponent implements OnInit, OnDestroy, AfterViewI
     this.modalService.open(search, { windowClass: 'search', backdrop: false });
   }
 
-  addMenuItem(): void {
-    this.menuItems.addStocksMenu({
-      state: 'menu',
-      name: 'MENU',
-      type: 'sub',
-      icon: 'basic-webpage-txt',
-      children: [
-        {state: 'menu', name: 'MENU'},
-        {state: 'menu', name: 'MENU'}
-      ]
-    });
-  }
 }

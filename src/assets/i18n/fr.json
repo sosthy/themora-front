@@ -1,5 +1,5 @@
 {
-  "HOME": "tableau de bord",
+  "HOME": "Tableau de bord",
 
   "EMAIL": "Email",
 
@@ -79,6 +79,10 @@
   "INVENTORIES": "Inventaires",
 
   "RECIPIENTS": "Founisseurs/Clients",
+
+  "USERS": "Utilisateurs",
+  "ROLES": "Rôles",
+  "MENUS": "Menus",
 
   "ERROR": "Erreur",
     "404": "404",
