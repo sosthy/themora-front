@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="d-flex justify-content-between mb-5">
+    <div>
+      <button class="btn btn-primary" (click)="onListUser()">Show List</button>
+      <button class="btn btn-primary" (click)="open(createRole)">Create Role</button>
+    </div>
+    <div class="u-search" *ngIf="mode == 1">
+      <form>
+        <div class="form-group">
+          <input type="search" placeholder="Search" class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-wrap justify-content-center" *ngIf="mode == 1">
+  <div class="d-flex flex-nowrap bg-white m-2 u-item shadow" *ngFor="let i of [1,2,3,4,5,6]" (click)="open(userDetails)">
+    <a href="" class="u-close"><span class="badge badge-danger rounded-circle">X</span></a>
+    <div class="ml-2">
+      <strong class="h5">ADMIN</strong> <br />
+      <small>Software Developer</small>
+    </div>
+  </div>
+</div>
+
+<div class="" *ngIf="mode == 3">
+  <p>Edition de contact</p>
+</div>
+
+<ng-template #userDetails let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Modal title</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template ngbModalContainer></ng-template>
+<ng-template #createRole let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">{{addEditCardHeader}}</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card">
+      <div class="card-body">
+        <p>Enter Role Informations for User</p>
+        <div class="form-group row">
+          <label for="role-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">RoleName</label>
+          <div class="col-sm-9 col-md-8 col-lg-9">
+            <input class="form-control" type="text" value="" id="role-text-input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="exampleSelect2" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Menus</label>
+          <div class="col-sm-9 col-md-8 col-lg-9">
+            <div class="row">
+              <div class="col">
+                <select id="exampleSelect2" multiple name="roles" [(ngModel)]="rolesSel" class="form-control" [compareWith]="compareFn">
+                  <option [ngValue]="roleItem" *ngFor="let roleItem of roles">{{roleItem}}</option>
+                </select>
+                <div class="text-right mt-1">
+                  <button class="btn btn-secondary btn-sm" (click)="addRole()">Push <i class="fa fa-chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="col">
+                <select multiple name="rolesSel" [(ngModel)]="rolSelRemoved" class="form-control" [compareWith]="compareFn">
+                  <option [ngValue]="r" *ngFor="let r of roleSelected">{{r}}</option>
+                </select>
+                <!-- <span *ngFor="let r of roleSelected" class="badge badge-success rounded">{{r}} &nbsp; </span> -->
+                <div class="text-right mt-1">
+                  <button class="btn btn-warning btn-sm" (click)="clearSelectedRole()">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="desc-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Description</label>
+          <div class="col-sm-9 col-md-8 col-lg-9">
+            <textarea class="form-control" type="text" value="" id="desc-text-input"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+</ng-template>
+
+
+
