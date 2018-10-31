@@ -2,34 +2,35 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Entrepot} from '../models/manage-stocks/entrepot.model';
 import {Emplacement} from '../models/manage-stocks/emplacement.model';
+import {AuthenticationService} from '../authentication/authentication.service';
 
 @Injectable()
 export class EntrepotServices {
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public authenticationService: AuthenticationService) {
 
   }
 
   /*===================================================entrepot=========================================================*/
 
   listEntrepot() {
-    return this.http.get('http://localhost:8080/stocks/entrepots');
+    return this.http.get('http://localhost:8080/stocks/entrepots', this.authenticationService.getHeaders());
   }
 
   followEntrepot(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/' + id);
+    return this.http.get('http://localhost:8080/stocks/entrepots/' + id, this.authenticationService.getHeaders());
   }
 
   deleteEntrepot(id: number) {
-    return this.http.delete('http://localhost:8080/stocks/entrepots/' + id);
+    return this.http.delete('http://localhost:8080/stocks/entrepots/' + id, this.authenticationService.getHeaders());
   }
 
   saveEntrepot(entrepot: Entrepot) {
-    return this.http.post('http://localhost:8080/stocks/entrepots', entrepot);
+    return this.http.post('http://localhost:8080/stocks/entrepots', entrepot, this.authenticationService.getHeaders());
   }
 
   updateEntrepot(entrepot: Entrepot) {
-    return this.http.post('http://localhost:8080/stocks/entrepots', entrepot);
+    return this.http.post('http://localhost:8080/stocks/entrepots', entrepot, this.authenticationService.getHeaders());
   }
   /*=================================================entrpot============================================================*/
 
@@ -37,102 +38,98 @@ export class EntrepotServices {
   /*=================================================emplacemet=========================================================*/
 
   listEmplOfAllEntr() {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements');
+    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements', this.authenticationService.getHeaders());
   }
 
-  saveEmplOfEntr(emplacement:Emplacement)
-  {
-    return this.http.post('http://localhost:8080/stocks/entrepots/emplacements',emplacement);
+  saveEmplOfEntr(emplacement: Emplacement) {
+    return this.http.post('http://localhost:8080/stocks/entrepots/emplacements', emplacement, this.authenticationService.getHeaders());
   }
 
-  updateEmplOfEntr(emplacement:Emplacement)
-  {
-    return this.http.post('http://localhost:8080/stocks/entrepots/emplacements', emplacement);
+  updateEmplOfEntr(emplacement: Emplacement) {
+    return this.http.post('http://localhost:8080/stocks/entrepots/emplacements', emplacement, this.authenticationService.getHeaders());
   }
 
-  followEmplOfEntr(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements' + id);
+  followEmplOfEntr(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements' + id, this.authenticationService.getHeaders());
   }
 
-  deleteEmplOfEntr(id:number)
-  {
-    return this.http.delete('http://localhost:8080/stocks/entrepots/emplacements'+id);
+  deleteEmplOfEntr(id: number) {
+    return this.http.delete('http://localhost:8080/stocks/entrepots/emplacements' + id, this.authenticationService.getHeaders());
   }
 
-  //==========================================================end=======================================================
+  // ==========================================================end=======================================================
 
 
-  //==============================Nombre de produit dans un emplacement d'un entrepot===================================
+  // ==============================Nombre de produit dans un emplacement d'un entrepot===================================
 
-  listCntPrdctOfEmpl(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/count-product-of-emplacement'+id);
+  listCntPrdctOfEmpl(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/count-product-of-emplacement' + id,
+      this.authenticationService.getHeaders());
   }
-  //============================end=====================================================================================
+  // ============================end=====================================================================================
 
 
-  //==================================Listing des produits d'un emplacement dans un entrepôt============================
+  // ==================================Listing des produits d'un emplacement dans un entrepôt============================
 
-  listPrdctOfEmpl(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/products-of-emplacement'+id);
+  listPrdctOfEmpl(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/products-of-emplacement' + id,
+      this.authenticationService.getHeaders());
   }
-  //======================================end===========================================================================
+  // ======================================end===========================================================================
 
-  //===========================================Nombre de portables dans un emplacement d'un entrepôt====================
+  // ===========================================Nombre de portables dans un emplacement d'un entrepôt====================
 
-  countPortItemOfEmpl(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/count-portable-items-of-emplacement'+id);
-  }
-
-  //=========================================end========================================================================
-
-  //=================================Listing des mouvements concernant un entrepôt donné================================
-
-  listMvtOfEntr(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/mouvments-of-entrepot'+id);
+  countPortItemOfEmpl(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/count-portable-items-of-emplacement' + id,
+      this.authenticationService.getHeaders());
   }
 
-  //====================================================================================================================
+  // =========================================end========================================================================
 
-  //==================================Listing de tous les produits d'un entrepôt donné==================================
+  // =================================Listing des mouvements concernant un entrepôt donné================================
 
-  listPrdctOfEntr(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/mouvments-of-entrepot'+id);
+  listMvtOfEntr(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/mouvments-of-entrepot' + id,
+      this.authenticationService.getHeaders());
   }
 
-  //====================================================================================================================
+  // ====================================================================================================================
 
-  //===============================Nombre des produits d'un entrepôt donné==============================================
+  // ==================================Listing de tous les produits d'un entrepôt donné==================================
 
-  cntPrdctOfEntr(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/count-product-of-entrepot'+id);
+  listPrdctOfEntr(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/mouvments-of-entrepot' + id,
+      this.authenticationService.getHeaders());
   }
-//======================================================================================================================
 
+  // ====================================================================================================================
 
+  // ===============================Nombre des produits d'un entrepôt donné==============================================
 
-//==================================================Nombre de portables d'un entrepôt===================================
-  cntPortItemOfEntr(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/count-portable-items-of-entrepot'+id);
+  cntPrdctOfEntr(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/count-product-of-entrepot' + id,
+      this.authenticationService.getHeaders());
   }
-//======================================================================================================================
+// ======================================================================================================================
 
-//==================================list des emplacements d'un entrepot=================================================
 
-  listEmplOfEntr(id:number)
-  {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements-of-entrepot'+id);
+
+// ==================================================Nombre de portables d'un entrepôt===================================
+  cntPortItemOfEntr(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/count-portable-items-of-entrepot' + id,
+      this.authenticationService.getHeaders());
   }
-  //====================================================================================================================
 
-  //====================================Test pour savoir si un entrepôt a encore de l'espace============================
+
+// ==================================list des emplacements d'un entrepot=================================================
+
+  listEmplOfEntr(id: number) {
+    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements-of-entrepot' + id,
+      this.authenticationService.getHeaders());
+  }
+  // ====================================================================================================================
+
+  // ====================================Test pour savoir si un entrepôt a encore de l'espace============================
 
   /*spaceOfEntr(id:number)
   {
