@@ -14,9 +14,9 @@ import { LockscreenComponent } from './lockscreen/lockscreen.component';
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent]
+  declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent],
 })
 
 export class AuthenticationModule {}
