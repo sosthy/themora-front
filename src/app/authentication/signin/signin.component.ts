@@ -27,13 +27,10 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
     this.auth.onLogin(new User()).subscribe(resp => {
-      const token = resp.headers.get('Authorization');
 
-      if (this.form.value.remember === true) {
-        this.auth.setToken(token);
-      } else {
-        this.auth.setUser(this.form.value);
-      }
+      const token = resp.headers.get('Authorization');
+      this.auth.setToken(token);
+      this.auth.setUser(this.form.value);
 
       if (resp.ok === true) {
         this.router.navigateByUrl('dashboard');
@@ -41,7 +38,6 @@ export class SigninComponent implements OnInit {
       console.log(resp);
     });
 
-    // this.router.navigate ( [ '/dashboard' ] );
   }
 
 }
