@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="d-flex justify-content-between mb-5">
+    <div>
+      <button class="btn btn-primary" (click)="open(createRole)">Create Menu</button>
+    </div>
+    <div class="u-search">
+      <form>
+        <div class="form-group">
+          <input type="search" placeholder="Search" class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <a [routerLink]="['/products/phones-list']">
+          <div class="card-header text-center"><strong>Product</strong></div>
+          <div class="card-body text-center">
+          </div>
+          <div class="card-footer text-center bg-blue-grey-A100">47</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

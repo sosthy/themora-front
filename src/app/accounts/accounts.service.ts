@@ -1,8 +1,8 @@
 
 
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
-import {TELCOPRO_URL} from "../models/config.model";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {TELCOPRO_URL} from '../models/config.model';
 
 @Injectable()
 export class AccountsService {

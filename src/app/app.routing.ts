@@ -36,6 +36,9 @@ export const AppRoutes: Routes = [{
   children: [{
     path: 'dashboard-stocks',
     loadChildren: './inventories/dashboard-stocks/dashboard-stocks.module#StocksDashboardModule'
+  }, {
+    path: 'products',
+    loadChildren: './products/products.module#ProductsModule'
   }]
 }, {
   path: '**',

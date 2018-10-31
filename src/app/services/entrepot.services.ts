@@ -3,6 +3,7 @@ import {Http} from '@angular/http';
 import {Entrepot} from '../models/manage-stocks/entrepot.model';
 import {Emplacement} from '../models/manage-stocks/emplacement.model';
 import {AuthenticationService} from '../authentication/authentication.service';
+import {TELCOPRO_URL} from '../models/config.model';
 
 @Injectable()
 export class EntrepotServices {
@@ -14,23 +15,23 @@ export class EntrepotServices {
   /*===================================================entrepot=========================================================*/
 
   listEntrepot() {
-    return this.http.get('http://localhost:8080/stocks/entrepots', this.authenticationService.getHeaders());
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots', this.authenticationService.getHeaders());
   }
 
   followEntrepot(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/' + id, this.authenticationService.getHeaders());
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/' + id, this.authenticationService.getHeaders());
   }
 
   deleteEntrepot(id: number) {
-    return this.http.delete('http://localhost:8080/stocks/entrepots/' + id, this.authenticationService.getHeaders());
+    return this.http.delete(TELCOPRO_URL + '/stocks/entrepots/' + id, this.authenticationService.getHeaders());
   }
 
   saveEntrepot(entrepot: Entrepot) {
-    return this.http.post('http://localhost:8080/stocks/entrepots', entrepot, this.authenticationService.getHeaders());
+    return this.http.post(TELCOPRO_URL + '/stocks/entrepots', entrepot, this.authenticationService.getHeaders());
   }
 
   updateEntrepot(entrepot: Entrepot) {
-    return this.http.post('http://localhost:8080/stocks/entrepots', entrepot, this.authenticationService.getHeaders());
+    return this.http.post(TELCOPRO_URL + '/stocks/entrepots', entrepot, this.authenticationService.getHeaders());
   }
   /*=================================================entrpot============================================================*/
 
@@ -38,23 +39,23 @@ export class EntrepotServices {
   /*=================================================emplacemet=========================================================*/
 
   listEmplOfAllEntr() {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements', this.authenticationService.getHeaders());
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/emplacements', this.authenticationService.getHeaders());
   }
 
   saveEmplOfEntr(emplacement: Emplacement) {
-    return this.http.post('http://localhost:8080/stocks/entrepots/emplacements', emplacement, this.authenticationService.getHeaders());
+    return this.http.post(TELCOPRO_URL + '/stocks/entrepots/emplacements', emplacement, this.authenticationService.getHeaders());
   }
 
   updateEmplOfEntr(emplacement: Emplacement) {
-    return this.http.post('http://localhost:8080/stocks/entrepots/emplacements', emplacement, this.authenticationService.getHeaders());
+    return this.http.post(TELCOPRO_URL + '/stocks/entrepots/emplacements', emplacement, this.authenticationService.getHeaders());
   }
 
   followEmplOfEntr(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements' + id, this.authenticationService.getHeaders());
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/emplacements' + id, this.authenticationService.getHeaders());
   }
 
   deleteEmplOfEntr(id: number) {
-    return this.http.delete('http://localhost:8080/stocks/entrepots/emplacements' + id, this.authenticationService.getHeaders());
+    return this.http.delete(TELCOPRO_URL + '/stocks/entrepots/emplacements' + id, this.authenticationService.getHeaders());
   }
 
   // ==========================================================end=======================================================
@@ -63,7 +64,7 @@ export class EntrepotServices {
   // ==============================Nombre de produit dans un emplacement d'un entrepot===================================
 
   listCntPrdctOfEmpl(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/count-product-of-emplacement' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/emplacements/count-product-of-emplacement' + id,
       this.authenticationService.getHeaders());
   }
   // ============================end=====================================================================================
@@ -72,7 +73,7 @@ export class EntrepotServices {
   // ==================================Listing des produits d'un emplacement dans un entrepôt============================
 
   listPrdctOfEmpl(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/products-of-emplacement' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/emplacements/products-of-emplacement' + id,
       this.authenticationService.getHeaders());
   }
   // ======================================end===========================================================================
@@ -80,7 +81,7 @@ export class EntrepotServices {
   // ===========================================Nombre de portables dans un emplacement d'un entrepôt====================
 
   countPortItemOfEmpl(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements/count-portable-items-of-emplacement' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/emplacements/count-portable-items-of-emplacement' + id,
       this.authenticationService.getHeaders());
   }
 
@@ -89,7 +90,7 @@ export class EntrepotServices {
   // =================================Listing des mouvements concernant un entrepôt donné================================
 
   listMvtOfEntr(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/mouvments-of-entrepot' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/mouvments-of-entrepot' + id,
       this.authenticationService.getHeaders());
   }
 
@@ -98,7 +99,7 @@ export class EntrepotServices {
   // ==================================Listing de tous les produits d'un entrepôt donné==================================
 
   listPrdctOfEntr(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/mouvments-of-entrepot' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/mouvments-of-entrepot' + id,
       this.authenticationService.getHeaders());
   }
 
@@ -107,7 +108,7 @@ export class EntrepotServices {
   // ===============================Nombre des produits d'un entrepôt donné==============================================
 
   cntPrdctOfEntr(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/count-product-of-entrepot' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/count-product-of-entrepot' + id,
       this.authenticationService.getHeaders());
   }
 // ======================================================================================================================
@@ -116,7 +117,7 @@ export class EntrepotServices {
 
 // ==================================================Nombre de portables d'un entrepôt===================================
   cntPortItemOfEntr(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/count-portable-items-of-entrepot' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/count-portable-items-of-entrepot' + id,
       this.authenticationService.getHeaders());
   }
 
@@ -124,7 +125,7 @@ export class EntrepotServices {
 // ==================================list des emplacements d'un entrepot=================================================
 
   listEmplOfEntr(id: number) {
-    return this.http.get('http://localhost:8080/stocks/entrepots/emplacements-of-entrepot' + id,
+    return this.http.get(TELCOPRO_URL + '/stocks/entrepots/emplacements-of-entrepot' + id,
       this.authenticationService.getHeaders());
   }
   // ====================================================================================================================
