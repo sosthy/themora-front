@@ -23,6 +23,7 @@ import {StocksAdminLayoutComponent} from './layouts/stocks-admin/stocks-admin-la
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthenticationService} from './authentication/authentication.service';
 import {AccountsAdminLayoutComponent} from './layouts/accounts-admin/accounts-admin-layout.component';
+import {JwtModule} from '@auth0/angular-jwt';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,8 +48,8 @@ export function tokenGetter() {
     SharedModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
-    HttpClientModule,
     HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -59,13 +60,13 @@ export function tokenGetter() {
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'}),
-    /* JwtModule.forRoot({
+    JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:3001'],
+        whitelistedDomains: ['localhost:8080'],
         blacklistedRoutes: ['localhost:3001/auth/']
       }
-    }), */
+    }),
   ],
   providers: [AuthenticationService, DashboardItems],
   bootstrap: [AppComponent]
