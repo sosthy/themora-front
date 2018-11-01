@@ -1,5 +1,6 @@
 import {ProductsComponent} from './products.component';
 import {PhonesComponent} from './phones/phones.component.';
+import {NewPhonesComponent} from './new-phones/new-phones.component';
 
 export const ProductsRoutes = [{
   path: '',
@@ -10,7 +11,8 @@ export const ProductsRoutes = [{
         heading: 'Products'
       },
       children: [
-        {path: 'phones', component: PhonesComponent, data: {heading: 'Phones'}}
+        {path: 'phones', component: PhonesComponent, data: {heading: 'Phones'}},
+        {path: 'new-phones', component: NewPhonesComponent, data: {heading: 'New-Phones'}}
       ]
     }]
 }];

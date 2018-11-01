@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-fluid" >
   <div class="d-flex justify-content-between mb-5">
     <div>
-      <button class="btn btn-primary" (click)="open(createRole)">Create Menu</button>
+      <button class="btn btn-primary" [routerLink]="['/products/new-phones']">Create Phone</button>
     </div>
     <div class="u-search">
       <form>
@@ -13,14 +13,22 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" *ngFor="let phone of listPortables">
       <div class="card">
-        <a [routerLink]="['/products/phones-list']">
-          <div class="card-header text-center"><strong>Product</strong></div>
+        <!--<a [routerLink]="['/products/phones-list']">-->
+          <div class="card-header text-center"><strong>{{phone.designation}}</strong><a class="fa fa-ellipsis-v u-move-to">
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </ul>
+
+          </a></div>
           <div class="card-body text-center">
           </div>
-          <div class="card-footer text-center bg-blue-grey-A100">47</div>
-        </a>
+          <div class="card-footer text-center bg-blue-grey-A100">{{phone.quantity}} {{phone.emplacement?.name}}</div>
+        <!--</a>-->
       </div>
     </div>
   </div>
