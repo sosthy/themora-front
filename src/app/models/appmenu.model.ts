@@ -2,5 +2,7 @@
 export interface AppMenu {
   id: number;
   name: string;
-  iconName: string;
+  icon: string;
+  description: string;
+  color: string;
 }

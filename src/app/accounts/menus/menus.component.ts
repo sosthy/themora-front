@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {AccountsService} from '../accounts.service';
 import {Http} from '@angular/http';
 import {AppMenu} from '../../models/appmenu.model';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { CustomValidators } from 'ng2-validation';
 
 
 @Component({
@@ -14,6 +16,7 @@ export class MenusComponent implements OnInit {
 
   public data: any[];
   closeResult: string;
+  content: any;
   addEditCardHeader: string;
   menus: Array<AppMenu> = new Array();
   mode = 1;
@@ -22,8 +25,9 @@ export class MenusComponent implements OnInit {
               private accountsSerice: AccountsService) {}
 
   ngOnInit(): void {
-    this.accountsSerice.getAllMenus().subscribe(data => {
+    this.accountsSerice.getAllMenus().map(res => res.json()).subscribe(data => {
       console.log(data);
+      this.menus = data;
     });
   }
 
@@ -43,6 +47,10 @@ export class MenusComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  onCreateMenu(form: any) {
+    console.log(form.value);
   }
 
   compareFn(c1: any, c2: any): boolean {
