@@ -1,26 +1,27 @@
-<div class="container">
-  <div class="d-flex justify-content-between mb-5">
-    <div>
-      <button class="btn btn-primary" (click)="open(createRole)">Create Menu</button>
-    </div>
-    <div class="u-search" *ngIf="mode == 1">
-      <form>
-        <div class="form-group">
-          <input type="search" placeholder="Search" class="form-control">
-        </div>
-      </form>
-    </div>
+
+<div class="d-flex justify-content-between mb-5">
+  <div>
+    <button class="btn btn-primary" (click)="open(createRole)">Create Menu</button>
+  </div>
+  <div class="u-search" *ngIf="mode == 1">
+    <form>
+      <div class="form-group">
+        <input type="search" placeholder="Search" class="form-control">
+      </div>
+    </form>
   </div>
 </div>
-<div class="d-flex flex-wrap justify-content-center" *ngIf="mode == 1">
-  <div class="d-flex flex-nowrap bg-white m-2 u-item shadow" *ngFor="let i of [1,2,3,4,5,6]" (click)="open(menuDetails)">
-    <a href="" class="u-close"><span class="badge badge-danger rounded-circle">X</span></a>
-    <div class="">
-      <i class="fa fa-android fa-3x"></i>
-    </div>
-    <div class="ml-2">
-      <strong class="h5">Accounts</strong> <br />
-      <small>Accounts Manager</small>
+
+<div class="row pt-3">
+  <div class="col-sm-6 col-md-4 col-lg-3 justify-content-center" *ngFor="let menu of menus">
+    <div class="card card-body card-widget bg-white card-inverse">
+      <a href="javascript:;">
+        <i class="fa {{ menu.icon }} fa-3x"></i>
+      </a>
+      <div class="pl-3 pr-3 w-75">
+        <p class="ff-headers mb-0 text-uppercase"><strong>{{ menu.name }}</strong></p>
+        <small class="d-block">{{ menu.description }}</small>
+      </div>
     </div>
   </div>
 </div>
@@ -49,33 +50,46 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="card">
-      <div class="card-body">
-        <p>Enter Menu Informations for Role</p>
-        <div class="form-group row">
-          <label for="menu-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Menu Name</label>
-          <div class="col-sm-9 col-md-8 col-lg-9">
-            <input class="form-control" type="text" value="" id="menu-text-input">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="icon-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Icon Name</label>
-          <div class="col-sm-9 col-md-8 col-lg-9">
-            <input class="form-control" type="text" value="" id="icon-text-input">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="desc-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Description</label>
-          <div class="col-sm-9 col-md-8 col-lg-9">
-            <textarea class="form-control" type="text" value="" id="desc-text-input"></textarea>
-          </div>
+    <form #f="ngForm" (ngSubmit)="onCreateMenu(f)">
+      <div class="card">
+        <div class="card-body">
+          <p>Enter Menu Informations for Role</p>
+            <div class="form-group row">
+              <label for="menu-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Menu Name</label>
+              <div class="col-sm-9 col-md-8 col-lg-9">
+                <input class="form-control" type="text" ngModel name="name" #menuName="ngModel" maxlength="15" required
+                       id="menu-text-input">
+                <div class="form-control-feedback">{{ menuName.value?.length }} / 15</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="icon-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Icon Name</label>
+              <div class="col-sm-9 col-md-8 col-lg-9">
+                <input class="form-control" type="text" ngModel name="icon" id="icon-text-input" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="color-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Background Color</label>
+              <div class="col-sm-9 col-md-8 col-lg-9">
+                <input class="form-control" type="text" ngModel name="color" id="color-text-input">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="desc-text-input" class="col-sm-3 col-md-4 col-lg-3 col-form-label">Description</label>
+              <div class="col-sm-9 col-md-8 col-lg-9">
+                <textarea class="form-control" type="text" ngModel name="description" #desc="ngModel" maxlength="50"
+                           id="desc-text-input"></textarea>
+                <div class="form-control-feedback">{{ desc.value?.length }} / 50</div>
+              </div>
+            </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-primary" (click)="f.ngSubmit.emit(); c('Close click')"
+      [disabled]="!f.form.valid">Save changes</button>
   </div>
 </ng-template>
 

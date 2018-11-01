@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {AccountsService} from "../accounts.service";
+import {AppRole} from "../../models/approle.model";
+import {Employee} from "../../models/employee.model";
 
 
 @Component({
@@ -15,13 +17,13 @@ export class RolesComponent implements OnInit {
   mode: number;
   addEditCardHeader: string;
   password: string;
-  rolesSel: Array<string> = new Array();
-  roleSelected: Array<string> = new Array();
-  rolSelRemoved: Array<string> = new Array();
-  roles: Array<string> = new Array();
+  rolesSel: Array<AppRole> = new Array();
+  roleSelected: Array<AppRole> = new Array();
+  rolSelRemoved: Array<AppRole> = new Array();
+  roles: Array<AppRole> = new Array();
   employee = '';
-  employeeSelected: Array<string> = new Array();
-  employees: Array<string> = new Array();
+  employeeSelected: Array<Employee> = new Array();
+  employees: Array<Employee> = new Array();
 
   constructor(private modalService: NgbModal, private accountsSerice: AccountsService) {}
 
@@ -29,8 +31,15 @@ export class RolesComponent implements OnInit {
     this.mode = 1;
     this.addEditCardHeader = 'Create Role';
     this.password = '********';
-    this.roles = ['RH', 'ADMIN', 'MAGASINIER', 'ORDER'];
-    this.employees = ['Sosthene Nouebissi', 'Tcheche Romeo', 'Zuko Tinkam', 'Marie Paul'];
+
+    this.accountsSerice.getAllRoles().subscribe(resp => {
+      console.log(resp);
+    });
+
+    this.accountsSerice.getAllEmployees().subscribe(resp => {
+      console.log(resp);
+    });
+
   }
 
   open(content) {
