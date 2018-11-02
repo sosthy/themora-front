@@ -1,9 +1,10 @@
 
 
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
-import {TELCOPRO_URL} from "../models/config.model";
-import {AuthenticationService} from "../authentication/authentication.service";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {TELCOPRO_URL} from '../models/config.model';
+import {AuthenticationService} from '../authentication/authentication.service';
+import { AppMenu } from '../models/appmenu.model';
 
 @Injectable()
 export class AccountsService {
@@ -12,15 +13,15 @@ export class AccountsService {
 
 // ------------------------------------------------------------
   getAllMenus() {
-    return this.http.get(TELCOPRO_URL + '/menus', this.auth.getHeaders());
+    return this.http.get(TELCOPRO_URL + '/menus', this.auth.getHeaders()).map(res => res.json());
   }
 
   getMenu(id) {
     return this.http.get(TELCOPRO_URL + '/');
   }
 
-  saveMenu(menu) {
-    return this.http.post(TELCOPRO_URL + '/', menu, this.auth.getHeaders());
+  saveMenu(menu: AppMenu) {
+    return this.http.post(TELCOPRO_URL + '/menus', menu, this.auth.getHeaders()).map(res => res.json());
   }
 
   deleteMenu(id) {
@@ -29,7 +30,7 @@ export class AccountsService {
 // ------------------------------------------------------------
 
   getAllRoles() {
-    return this.http.get(TELCOPRO_URL + '/roles', this.auth.getHeaders());
+    return this.http.get(TELCOPRO_URL + '/roles', this.auth.getHeaders()).map(res => res.json());
   }
 
   getRole(id) {
@@ -37,7 +38,7 @@ export class AccountsService {
   }
 
   saveRole(menu) {
-    return this.http.post(TELCOPRO_URL + '/', menu, this.auth.getHeaders());
+    return this.http.post(TELCOPRO_URL + '/', menu, this.auth.getHeaders()).map(res => res.json());
   }
 
   deleteRole(id) {
@@ -53,7 +54,7 @@ export class AccountsService {
   }
 
   saveUser(menu) {
-    return this.http.post(TELCOPRO_URL + '/', menu, this.auth.getHeaders());
+    return this.http.post(TELCOPRO_URL + '/', menu, this.auth.getHeaders()).map(res => res.json());
   }
 
   deleteUser(id) {
