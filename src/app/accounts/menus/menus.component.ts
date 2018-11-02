@@ -26,7 +26,7 @@ export class MenusComponent implements OnInit {
               private accountsSerice: AccountsService) {}
 
   ngOnInit(): void {
-    this.accountsSerice.getAllMenus().map(res => res.json()).subscribe(data => {
+    this.accountsSerice.getAllMenus().subscribe(data => {
       console.log(data);
       this.menus = data;
     });
