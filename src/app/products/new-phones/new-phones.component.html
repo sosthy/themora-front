@@ -1,0 +1,270 @@
+<!--<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        stocks Informations
+      </div>
+      <div class="card-body">
+       <form>
+         <div class="form-group">
+           <label class="control-label">Designation:</label>
+           <input class="form-control" type="text" [(ngModel)]="product.designation"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Quantity:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.quantity"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Price Unit:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.priceUnit"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Creation Date:</label>
+            <input class="form-control" type="date" [(ngModel)]="product.dateCreation"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Notes:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.note"/>
+         </div>
+         <p class="mt-4">Choose An Image</p>
+          <label class="custom-file">
+          <input type="file" id="file" class="custom-file-input">
+          <span class="custom-file-control"></span>
+        </label>
+         <div class="form-group">
+            <label class="control-label">Price Unit Semi Whole saler:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.priceUnitWholesaler"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label"> Price Unit Whole Saler</label>
+            <input class="form-control" type="number" [(ngModel)]="product.priceUnitWholesaler"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Stock d'alert:</label>
+           <input class="form-control" type="number" [(ngModel)]="product.stockAlert"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Stock Minimum:</label>
+           <input class="form-control" type="number" [(ngModel)]="product.stockMinimum"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Volume:</label>
+           <input class="form-control" type="number" [(ngModel)]="Produit.volume"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Product Category:</label>
+            <select [(ngModel)]="product.productCategory" name="selectl" class="form-control">
+              <option [ngValue]="product.productCategory" selected>{{product.productCategory?.name}}</option>
+              <option [ngValue]="productCategory" *ngFor="let productCategory of listProductCategory">{{productCategory?.name}}</option>
+            </select>
+         </div>
+          <div class="form-group">
+            <label class="control-label">Measure Unit:</label>
+            <select [(ngModel)]="product.measureUnit" name="selectl" class="form-control">
+              <option [ngValue]="product.measureUnit" selected>{{produit.measureUnit?.unity}}</option>
+              <option [ngValue]="measureUnit" *ngFor="let measureUnit of listMeasureUnit">{{measureUnit?.unity}}</option>
+            </select>
+          </div>
+         <div class="form-group">
+           <label class="control-label">State:</label>
+           <select [(ngModel)]="product.state" name="selectl" class="form-control">
+             <option [ngValue]="product.state" selected>{{product.state?.name}}</option>
+             <option [ngValue]="state" *ngFor="let state of liststate">{{state?.name}}</option>
+           </select>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Emplacement:</label>
+           <select [(ngModel)]="product.emplacement" name="selectl" class="form-control">
+             <option [ngValue]="product.emplacement" selected>{{product.emplacement?.name}}</option>
+             <option [ngValue]="emplacement" *ngFor="let emplacement of listemplacement">{{emplacement?.name}}</option>
+           </select>
+         </div>
+       </form>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<form>
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        stocks Informations
+      </div>
+      <div class="card-body">
+
+         <div class="form-group">
+           <label class="control-label">Designation:</label>
+           <input class="form-control" type="text" [(ngModel)]="product.designation"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Quantity:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.quantity"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Price Unit:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.priceUnit"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Creation Date:</label>
+            <input class="form-control" type="date" [(ngModel)]="product.dateCreation"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label">Notes:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.note"/>
+         </div>
+         <p class="mt-4">Choose An Image</p>
+          <label class="custom-file">
+          <input type="file" id="file" class="custom-file-input">
+          <span class="custom-file-control"></span>
+        </label>
+         <div class="form-group">
+            <label class="control-label">Price Unit Semi Whole saler:</label>
+            <input class="form-control" type="number" [(ngModel)]="product.priceUnitWholesaler"/>
+         </div>
+         <div class="form-group">
+            <label class="control-label"> Price Unit Whole Saler</label>
+            <input class="form-control" type="number" [(ngModel)]="product.priceUnitWholesaler"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Stock d'alert:</label>
+           <input class="form-control" type="number" [(ngModel)]="product.stockAlert"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Stock Minimum:</label>
+           <input class="form-control" type="number" [(ngModel)]="product.stockMinimum"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Volume:</label>
+           <input class="form-control" type="number" [(ngModel)]="Produit.volume"/>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Product Category:</label>
+            <select [(ngModel)]="product.productCategory" name="selectl" class="form-control">
+              <option [ngValue]="product.productCategory" selected>{{product.productCategory?.name}}</option>
+              <option [ngValue]="productCategory" *ngFor="let productCategory of listProductCategory">{{productCategory?.name}}</option>
+            </select>
+         </div>
+          <div class="form-group">
+            <label class="control-label">Measure Unit:</label>
+            <select [(ngModel)]="product.measureUnit" name="selectl" class="form-control">
+              <option [ngValue]="product.measureUnit" selected>{{produit.measureUnit?.unity}}</option>
+              <option [ngValue]="measureUnit" *ngFor="let measureUnit of listMeasureUnit">{{measureUnit?.unity}}</option>
+            </select>
+          </div>
+         <div class="form-group">
+           <label class="control-label">State:</label>
+           <select [(ngModel)]="product.state" name="selectl" class="form-control">
+             <option [ngValue]="product.state" selected>{{product.state?.name}}</option>
+             <option [ngValue]="state" *ngFor="let state of liststate">{{state?.name}}</option>
+           </select>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Emplacement:</label>
+           <select [(ngModel)]="product.emplacement" name="selectl" class="form-control">
+             <option [ngValue]="product.emplacement" selected>{{product.emplacement?.name}}</option>
+             <option [ngValue]="emplacement" *ngFor="let emplacement of listemplacement">{{emplacement?.name}}</option>
+           </select>
+         </div>
+
+      </div>
+      <div class="card-footer"><button class="btn btn-default">Save</button></div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        Phones Informations
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label class="control-label">Battery:</label>
+          <input class="form-control" type="text" [(ngModel)]="portable.battery"/>
+        </div>
+         <div class="form-group">
+           <label class="control-label">Connection:</label>
+           <input class="form-control" type="text" [(ngModel)]="portable.connection"/>
+         </div>
+        <div class="form-group">
+          <label class="control-label">Dimension:</label>
+          <input class="form-control" type="number" [(ngModel)]="portable.dimension"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Dushproof:</label>
+          <input class="form-control" type="text" [(ngModel)]="portable.dushproof"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">finger Print:</label>
+          <input class="form-control" type="text" [(ngModel)]="portable.fingerprint"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Ip Rating:</label>
+          <input class="form-control" type="text" [(ngModel)]="portable.ipRating"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Screen:</label>
+          <input class="form-control" type="number" [(ngModel)]="portable.screen"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">SIM:</label>
+          <input class="form-control" type="text" [(ngModel)]="portable.sim"/>
+        </div>
+         <div class="form-group">
+           <label class="control-label">Splash Proof:</label>
+           <input class="form-control" type="text" [(ngModel)]="portable.splashproof"/>
+         </div>
+        <div class="form-group">
+          <label class="control-label">Water Proof:</label>
+          <input class="form-control" type="text" [(ngModel)]="portable.waterproof"/>
+        </div>
+         <div class="form-group">
+           <label class="control-label">Weight:</label>
+           <input class="form-control" type="number" [(ngModel)]="portable.weight"/>
+         </div>
+        <div class="form-group">
+          <label class="control-label">System Os:</label>
+          <select [(ngModel)]="portable.os" name="selectl" class="form-control">
+            <option [ngValue]="portable.os" selected>{{portable.os?.name}}</option>
+            <option [ngValue]="os" *ngFor="let os of listSystemOs">{{os?.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Camera:</label>
+          <select [(ngModel)]="portable.camera" name="selectl" class="form-control">
+            <option [ngValue]="portable.camera" selected>{{produit.camera?.name}}</option>
+            <option [ngValue]="camera" *ngFor="let camera of listCamera">{{camera?.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Memoire:</label>
+          <select [(ngModel)]="portable.memory" name="selectl" class="form-control">
+            <option [ngValue]="portable.memory" selected>{{produit.memoire?.brand}}</option>
+            <option [ngValue]="memory" *ngFor="let memory of listMemory">{{memory?.brand}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Phone Category:</label>
+          <select [(ngModel)]="portable.portableCategory" name="selectl" class="form-control">
+            <option [ngValue]="portable.portableCategory" selected>{{produit.portableCategory?.name}}</option>
+            <option [ngValue]="portableCategory" *ngFor="let portableCategory of listPortableCategory">{{portableCategory?.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">CPU:</label>
+          <select [(ngModel)]="portable.cpu" name="selectl" class="form-control">
+            <option [ngValue]="portable.cpu" selected>{{portable.cpu?.frequency}}</option>
+            <option [ngValue]="cpu" *ngFor="let cpu of listCpu">{{cpu?.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+</form>
