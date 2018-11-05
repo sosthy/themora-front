@@ -1,5 +1,5 @@
 
-export interface Workspace {
+export class Workspace {
   id: number;
   name: string;
 }

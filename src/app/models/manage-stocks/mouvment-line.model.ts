@@ -1,7 +1,7 @@
 import {Mouvment} from './mouvment.model';
 import {Product} from './product.model';
 
-export interface MouvmentLine {
+export class MouvmentLine {
   id: number;
   quantity: number;
   priceUnit: number;

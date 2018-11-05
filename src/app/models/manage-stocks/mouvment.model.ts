@@ -4,7 +4,7 @@ import {MouvmentType} from './mouvment-type.model';
 import {Employee} from '../employee.model';
 import {Recipient} from './recipient.model';
 
-export interface Mouvment {
+export class Mouvment {
   id: number;
   reference: string;
   date: Date;

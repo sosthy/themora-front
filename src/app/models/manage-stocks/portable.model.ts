@@ -6,7 +6,7 @@ import {PortableCategory} from './portable-category.model';
 import {PortableItem} from './portable-item.model';
 import {SystemOs} from './system-os.model';
 
-export interface Portable extends Product {
+export class Portable extends Product {
    connection: string;
   battery: string;
   screen: number;

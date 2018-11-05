@@ -1,7 +1,7 @@
 
 import {Employee} from "./employee.model";
 
-export interface AppUser {
+export class AppUser {
   id: number;
   username: string;
   password: string;

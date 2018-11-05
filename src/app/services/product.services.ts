@@ -4,6 +4,8 @@ import {Product} from '../models/manage-stocks/product.model';
 import {AppColor} from '../models/manage-stocks/app-color.model';
 import {AuthenticationService} from '../authentication/authentication.service';
 import {TELCOPRO_URL} from '../models/config.model';
+import {StaggerAst} from '@angular/animations/browser/src/dsl/animation_ast';
+import {State} from '../models/manage-stocks/state.model';
 
 @Injectable()
 export class ProductServices {
@@ -82,7 +84,24 @@ export class ProductServices {
     return this.http.get(TELCOPRO_URL + '/stocks/poducts-color/blue' + name, this.authenticationService.getHeaders());
   }
 
+  // ===========================Listing, Modification et Sauvegarde des états d'un produit  ===============================
+  listAllState() {
+    return this.http.get(TELCOPRO_URL + '/stocks/states', this.authenticationService.getHeaders());
+  }
+  saveState(state: State) {
+    return this.http.post(TELCOPRO_URL + '/stocks/states', state, this.authenticationService.getHeaders());
+  }
+   updateState(state: State) {
+    return this.http.post(TELCOPRO_URL + '/stocks/states', state, this.authenticationService.getHeaders());
+  }
 
+  // ==============================Suppression et récupération d'un élément d'un état=======================================
+  listState(id: number) {
+    return this.http.get(TELCOPRO_URL + '/stocks/states' + id, this.authenticationService.getHeaders());
+  }
+   deleteState(id: number) {
+    return this.http.get(TELCOPRO_URL + '/stocks/states' + id, this.authenticationService.getHeaders());
+  }
 
 
 }

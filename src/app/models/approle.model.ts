@@ -1,7 +1,7 @@
 
 import {AppMenu} from "./appmenu.model";
 
-export interface AppRole {
+export class AppRole {
   id: number;
   roleName: string;
   description: string;

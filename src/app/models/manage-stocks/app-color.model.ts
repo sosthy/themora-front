@@ -1,6 +1,6 @@
 import {Product} from './product.model';
 
-export interface AppColor {
+export class AppColor {
   id: number;
   name: string;
   productList: Product;

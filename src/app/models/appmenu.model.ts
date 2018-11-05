@@ -1,5 +1,5 @@
 
-export interface AppMenu {
+export class AppMenu {
   id: number;
   name: string;
   icon: string;
