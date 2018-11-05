@@ -5,6 +5,7 @@ import {Http} from '@angular/http';
 import {AppMenu} from '../../models/appmenu.model';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class MenusComponent implements OnInit {
               private accountsSerice: AccountsService) {}
 
   ngOnInit(): void {
-    this.accountsSerice.getAllMenus().map(res => res.json()).subscribe(data => {
+    this.accountsSerice.getAllMenus().subscribe(data => {
       console.log(data);
       this.menus = data;
     });
@@ -51,6 +52,10 @@ export class MenusComponent implements OnInit {
 
   onCreateMenu(form: any) {
     console.log(form.value);
+    this.accountsSerice.saveMenu(form.value).subscribe(data => {
+      console.log(data);
+      this.menus.push(data);
+    });
   }
 
   compareFn(c1: any, c2: any): boolean {
