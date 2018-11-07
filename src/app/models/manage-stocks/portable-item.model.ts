@@ -1,6 +1,6 @@
 import {Portable} from './portable.model';
 
-export interface PortableItem {
+export class PortableItem {
   id: number;
   codeQrc: string;
   codeBar: string;

@@ -1,4 +1,4 @@
-export interface MeasureUnit {
+export class MeasureUnit {
   id: number;
   unity: string;
 }

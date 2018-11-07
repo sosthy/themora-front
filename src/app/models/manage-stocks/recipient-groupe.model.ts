@@ -1,6 +1,6 @@
 import {Recipient} from './recipient.model';
 
-export interface RecipientGroupe {
+export class RecipientGroupe {
    id: number;
   name: string;
   recipients: Recipient;

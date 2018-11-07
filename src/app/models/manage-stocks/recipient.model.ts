@@ -2,7 +2,7 @@ import {Portable} from './portable.model';
 import {Mouvment} from './mouvment.model';
 import {RecipientGroupe} from './recipient-groupe.model';
 
-export interface  Recipient {
+export class  Recipient {
   id: number;
   name: string;
   surname: string;

@@ -1,4 +1,4 @@
-export interface Memory {
+export class Memory {
   id: number;
   ram: number;
   rom: number;

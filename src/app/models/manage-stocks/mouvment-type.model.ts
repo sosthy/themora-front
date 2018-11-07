@@ -1,6 +1,6 @@
 import {Mouvment} from './mouvment.model';
 
-export interface  MouvmentType {
+export class  MouvmentType {
    id: number;
   name: string;
   mouvements: Mouvment;
